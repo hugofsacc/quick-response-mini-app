@@ -1,0 +1,6 @@
+{
+  "name": "Quick Response Mini-App",
+  "description": "Conversation assistant that helps you find the right words right when you need them. Calm before speaking, clarity during the conversation, peace of mind after.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -15,6 +15,7 @@ import { DiagnosticSection } from './components/DiagnosticSection';
 import { LimitOMaticSection } from './components/LimitOMaticSection';
 import { KitSection } from './components/KitSection';
 import { SomaticResetModal } from './components/SomaticResetModal';
+import { GumroadExportModal } from './components/GumroadExportModal';
 import { MobileDock } from './components/MobileDock';
 import { Toast } from './components/Toast';
 
@@ -41,6 +42,7 @@ const DEFAULT_ANSWERS: Record<number, number> = {
 export default function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('assessment');
   const [isSomaticModalOpen, setIsSomaticModalOpen] = useState(false);
+  const [isGumroadModalOpen, setIsGumroadModalOpen] = useState(false);
   const [toasts, setToasts] = useState<ToastMessage[]>([]);
   const [preferredTone, setPreferredTone] = useState<ToneType>('assertive');
 
@@ -241,6 +243,7 @@ export default function App() {
         activeTab={activeTab}
         onSelectTab={setActiveTab}
         onOpenSomaticReset={() => setIsSomaticModalOpen(true)}
+        onOpenGumroadExport={() => setIsGumroadModalOpen(true)}
         savedCount={savedScripts.length}
       />
 
@@ -319,6 +322,7 @@ export default function App() {
               setActiveTab('scripts');
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
+            onOpenGumroadExport={() => setIsGumroadModalOpen(true)}
           />
         )}
       </main>
@@ -332,6 +336,12 @@ export default function App() {
           setActiveTab('scripts');
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
+      />
+
+      {/* Gumroad Standalone HTML Export Modal */}
+      <GumroadExportModal
+        isOpen={isGumroadModalOpen}
+        onClose={() => setIsGumroadModalOpen(false)}
       />
 
       {/* Floating Mobile Thumb-Dock */}
@@ -352,6 +362,14 @@ export default function App() {
           <p className="text-[11px] text-slate-400 mt-1">
             The right words, right when you need them. Calm before speaking, clarity during the conversation, peace of mind after.
           </p>
+          <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-center gap-3 text-[11px]">
+            <button
+              onClick={() => setIsGumroadModalOpen(true)}
+              className="text-emerald-700 hover:text-emerald-800 font-semibold hover:underline flex items-center gap-1 cursor-pointer"
+            >
+              📦 Descargar App en 1 archivo HTML para Gumroad
+            </button>
+          </div>
         </footer>
       </div>
     </div>

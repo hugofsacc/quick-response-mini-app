@@ -1,12 +1,11 @@
 import React from 'react';
-import { Zap, HeartPulse, Download } from 'lucide-react';
+import { Zap, HeartPulse } from 'lucide-react';
 import { ActiveTab } from '../types';
 
 interface HeaderProps {
   activeTab: ActiveTab;
   onSelectTab: (tab: ActiveTab) => void;
   onOpenSomaticReset: () => void;
-  onOpenGumroadExport: () => void;
   savedCount: number;
 }
 
@@ -14,7 +13,6 @@ export const Header: React.FC<HeaderProps> = ({
   activeTab,
   onSelectTab,
   onOpenSomaticReset,
-  onOpenGumroadExport,
   savedCount,
 }) => {
   return (
@@ -89,18 +87,8 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
         </nav>
 
-        {/* Zone 3: Primary Action Trigger & Gumroad Download */}
+        {/* Zone 3: Primary Action Trigger */}
         <div className="flex items-center gap-2">
-          <button
-            onClick={onOpenGumroadExport}
-            className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 hover:text-slate-900 border border-slate-200 transition-colors min-h-[44px] cursor-pointer"
-            title="Descargar archivo HTML autocontenido para Gumroad"
-          >
-            <Download className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-            <span className="hidden sm:inline">HTML Gumroad</span>
-            <span className="sm:hidden text-[11px] font-bold">HTML</span>
-          </button>
-
           <button
             onClick={onOpenSomaticReset}
             className="group relative inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 active:scale-95 transition-all shadow-sm min-h-[44px] min-w-[44px] cursor-pointer"

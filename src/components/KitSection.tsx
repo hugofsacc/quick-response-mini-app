@@ -10,7 +10,6 @@ interface KitSectionProps {
   onCopy: (text: string, title: string) => void;
   onSaveCustomScript: (script: ScriptItem) => void;
   onGoToBank: () => void;
-  onOpenGumroadExport: () => void;
 }
 
 export const KitSection: React.FC<KitSectionProps> = ({
@@ -18,7 +17,6 @@ export const KitSection: React.FC<KitSectionProps> = ({
   onRemoveFromKit,
   onCopy,
   onSaveCustomScript,
-  onOpenGumroadExport,
 }) => {
   const [showBuilder, setShowBuilder] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
@@ -128,15 +126,6 @@ export const KitSection: React.FC<KitSectionProps> = ({
               <span>Create Script</span>
             </button>
 
-            <button
-              onClick={onOpenGumroadExport}
-              className="px-3.5 py-2 rounded-full bg-slate-900/80 hover:bg-slate-900 text-emerald-300 border border-emerald-400/40 text-xs font-semibold flex items-center gap-1.5 shadow-sm backdrop-blur-md transition-all cursor-pointer"
-              title="Descargar archivo HTML completo para Gumroad"
-            >
-              <Download className="w-3.5 h-3.5 text-emerald-400" />
-              <span>HTML Gumroad</span>
-            </button>
-
             {savedScripts.length > 0 && (
               <button
                 onClick={handleExportAll}
@@ -148,26 +137,6 @@ export const KitSection: React.FC<KitSectionProps> = ({
             )}
           </div>
         </div>
-      </div>
-
-      {/* Gumroad Standalone Package Card */}
-      <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-emerald-950 text-white rounded-3xl p-5 sm:p-6 border border-slate-700/60 shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-        <div className="space-y-1.5">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-semibold border border-emerald-500/30">
-            📦 Distribución en Gumroad (Archivo Único)
-          </div>
-          <h3 className="text-base sm:text-lg font-bold text-white">¿Listo para publicar esta Mini App en Gumroad?</h3>
-          <p className="text-xs text-slate-300 max-w-xl leading-relaxed">
-            Descarga el archivo <strong>quick-response-mini-app.html</strong> autocontenido. Incluye estilos, scripts e imágenes embebidas en Base64 sin llamadas a servidores externos, 100% conforme a las políticas de contenido de Gumroad.
-          </p>
-        </div>
-        <button
-          onClick={onOpenGumroadExport}
-          className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-400 hover:bg-emerald-300 active:scale-95 text-slate-950 font-bold text-xs shadow-md transition-all cursor-pointer whitespace-nowrap"
-        >
-          <Download className="w-4 h-4" />
-          Descargar HTML Gumroad
-        </button>
       </div>
 
       {/* Builder Modal or Section */}

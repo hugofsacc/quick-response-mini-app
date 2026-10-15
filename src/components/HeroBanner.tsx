@@ -86,16 +86,24 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
           </p>
         </div>
 
-        {/* Bottom subtle kicker */}
-        <div
-          className="relative z-10 pt-2 text-[11px] text-white/90 font-medium flex items-center gap-3"
-          style={{ textShadow: '0 1px 4px rgba(0,0,0,0.8)' }}
-        >
-          <span>Respectful &amp; Grounded</span>
-          <span aria-hidden="true">·</span>
-          <span>Zero Aggression</span>
-          <span aria-hidden="true">·</span>
-          <span>Practical &amp; Ready to Use</span>
+        {/* Bottom subtle kicker & disclaimer */}
+        <div className="relative z-10 pt-2 flex flex-col gap-1">
+          <div
+            className="text-[11px] text-white/90 font-medium flex flex-wrap items-center gap-x-3 gap-y-1"
+            style={{ textShadow: '0 1px 4px rgba(0,0,0,0.8)' }}
+          >
+            <span>Respectful &amp; Grounded</span>
+            <span aria-hidden="true">·</span>
+            <span>Zero Aggression</span>
+            <span aria-hidden="true">·</span>
+            <span>Practical &amp; Ready to Use</span>
+          </div>
+          <p
+            className="text-[11px] text-orange-200/95 font-medium leading-normal"
+            style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85)' }}
+          >
+            Self-reflection and communication tool. Not medical or psychological advice, diagnosis, or treatment.
+          </p>
         </div>
       </div>
     </section>
